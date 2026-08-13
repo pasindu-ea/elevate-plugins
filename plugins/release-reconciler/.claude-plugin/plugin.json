@@ -1,0 +1,11 @@
+{
+  "name": "release-reconciler",
+  "version": "1.0.0",
+  "description": "Release-scoped documentation reconciler. Diffs since the last release tag, finds docs invalidated by shipped changes, fixes them, and reports what it refused to guess at.",
+  "author": {
+    "name": "pasindu-ea",
+    "email": "pasindu-ea@users.noreply.github.com"
+  },
+  "license": "MIT",
+  "commands": ["./commands/release-reconcile.md"]
+}

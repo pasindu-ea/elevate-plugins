@@ -1,0 +1,26 @@
+{
+  "name": "elevate-plugins",
+  "owner": {
+    "name": "pasindu-ea",
+    "email": "pasindu-ea@users.noreply.github.com"
+  },
+  "metadata": {
+    "description": "ELEVATE 2026 — release-level documentation reconciliation.",
+    "version": "1.0.0",
+    "pluginRoot": "./plugins"
+  },
+  "plugins": [
+    {
+      "name": "release-reconciler",
+      "source": "./plugins/release-reconciler",
+      "description": "Reconciles documentation against everything shipped since the last release tag. Opens one gated PR with a doc-debt ledger.",
+      "version": "1.0.0",
+      "author": {
+        "name": "pasindu-ea",
+        "email": "pasindu-ea@users.noreply.github.com"
+      },
+      "category": "documentation",
+      "license": "MIT"
+    }
+  ]
+}
