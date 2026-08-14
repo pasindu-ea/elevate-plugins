@@ -51,6 +51,12 @@ report is:
 > construction. If it is consumed, it is consumed as a running service, a
 > container image, or by copy-paste — none of which a manifest scan can see.
 
+**Post that report as a comment before you stop** — same single-comment
+mechanics as §5, on the issue or PR whose number is stated in the prompt.
+"Stop" here means skip §2–§4 (there is nothing to search for), not skip
+reporting: a run that reaches a valid conclusion and never tells anyone is
+indistinguishable from a run that crashed.
+
 Do not invent a package name to have something to search for.
 
 ## 2. List every repo in the organization
