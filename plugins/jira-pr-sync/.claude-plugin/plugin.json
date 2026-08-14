@@ -1,0 +1,11 @@
+{
+  "name": "jira-pr-sync",
+  "version": "1.0.0",
+  "description": "Moves Jira issues along the board based on GitHub PR lifecycle events, using the Jira ID prefix in commit messages (e.g. 'SCRUM-1: adding team member's work'). Only transitions an issue if it's currently in the exact expected starting status.",
+  "author": {
+    "name": "pasindu-ea",
+    "email": "pasindu-ea@users.noreply.github.com"
+  },
+  "license": "MIT",
+  "commands": ["./commands/jira-pr-status-sync.md"]
+}

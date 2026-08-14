@@ -5,8 +5,8 @@
     "email": "pasindu-ea@users.noreply.github.com"
   },
   "metadata": {
-    "description": "ELEVATE 2026 — release-level documentation reconciliation and sprint hygiene agents.",
-    "version": "1.1.0",
+    "description": "ELEVATE 2026 — release-level documentation reconciliation, sprint hygiene, and PR-to-board status sync agents.",
+    "version": "1.2.0",
     "pluginRoot": "./plugins"
   },
   "plugins": [
@@ -27,6 +27,18 @@
       "source": "./plugins/jira-sprint-nudge",
       "description": "Scans the current sprint and rates every issue's description for clarity (1-5), not just presence — flags vague, too-short, and self-contradictory descriptions, then asks the reporter for specific fixes. Re-scores whenever a description changes: acknowledges real fixes, re-nudges if still weak, stays silent otherwise.",
       "version": "1.2.0",
+      "author": {
+        "name": "pasindu-ea",
+        "email": "pasindu-ea@users.noreply.github.com"
+      },
+      "category": "project-management",
+      "license": "MIT"
+    },
+    {
+      "name": "jira-pr-sync",
+      "source": "./plugins/jira-pr-sync",
+      "description": "Moves Jira issues along the board based on GitHub PR lifecycle events, using the Jira ID prefix in commit messages. Only transitions an issue if it's currently in the exact expected starting status, so manual moves are never overridden.",
+      "version": "1.0.0",
       "author": {
         "name": "pasindu-ea",
         "email": "pasindu-ea@users.noreply.github.com"
