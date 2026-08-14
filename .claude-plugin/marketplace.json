@@ -13,8 +13,8 @@
     {
       "name": "release-reconciler",
       "source": "./plugins/release-reconciler",
-      "description": "Reconciles documentation against everything shipped since the last release tag. Opens one gated PR with a doc-debt ledger.",
-      "version": "1.0.0",
+      "description": "Reconciles documentation against everything shipped since the last release tag. Opens one gated PR with a doc-debt ledger. Also generates Docs/DOMAIN.md — a business-facing domain knowledge doc covering user roles, business rules, and user flows, for new users and product owners.",
+      "version": "1.1.0",
       "author": {
         "name": "pasindu-ea",
         "email": "pasindu-ea@users.noreply.github.com"

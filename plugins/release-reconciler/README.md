@@ -18,21 +18,40 @@ Two modes, auto-detected:
   surface it can find in the code, and reports coverage (documented
   symbols / total public surface) instead of a debt count.
 
-## Usage
+## Commands
 
-```
-/release-reconcile [since-tag]
-```
+### `/release-reconcile [since-tag]`
 
 Defaults to the most recent tag reachable from `HEAD` if `since-tag` is
 omitted; falls back to the repo's root commit if no tag exists at all.
+
+### `/domain-doc`
+
+Generates or refreshes `Docs/DOMAIN.md` — a business-facing document for
+**new users and product owners**, not developers. Covers, traced back to
+actual code (not guessed):
+
+- What the product does, in plain language
+- Every user role/permission level, and what each can and can't do
+- The core domain concepts and how they relate
+- The business rules that actually govern behavior — validation,
+  calculations, state transitions, limits — each cited to `file:line`
+- Step-by-step user flows, if there's a frontend
+- A glossary of domain-specific terms
+- A "Needs product input" section for anything genuinely ambiguous
+
+Unlike `/release-reconcile`, this isn't a diff against a prior release —
+it regenerates the whole document each run, but skips opening a PR if
+nothing about the actual roles/rules/flows changed.
 
 ## What it will not do
 
 - Merge its own PR, or push to the default branch.
 - Rewrite prose it wasn't sent to fix.
-- Claim something is fixed when it isn't sure — those go in the PR's
-  "Doc debt" section with a reason instead.
+- State a business rule or a user role it can't trace to actual code.
+- Claim something is fixed/understood when it isn't sure — those go in
+  "Doc debt" (`/release-reconcile`) or "Needs product input" (`/domain-doc`)
+  with a reason instead.
 
 ## Wiring
 

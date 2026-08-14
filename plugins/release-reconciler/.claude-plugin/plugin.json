@@ -1,11 +1,11 @@
 {
   "name": "release-reconciler",
-  "version": "1.0.0",
-  "description": "Release-scoped documentation reconciler. Diffs since the last release tag, finds docs invalidated by shipped changes, fixes them, and reports what it refused to guess at.",
+  "version": "1.1.0",
+  "description": "Release-scoped documentation reconciler. Diffs since the last release tag, finds docs invalidated by shipped changes, fixes them, and reports what it refused to guess at. Also generates a business-facing domain knowledge doc (roles, rules, user flows) for new users and product owners.",
   "author": {
     "name": "pasindu-ea",
     "email": "pasindu-ea@users.noreply.github.com"
   },
   "license": "MIT",
-  "commands": ["./commands/release-reconcile.md"]
+  "commands": ["./commands/release-reconcile.md", "./commands/domain-doc.md"]
 }
