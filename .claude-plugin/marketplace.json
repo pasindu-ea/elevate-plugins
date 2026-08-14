@@ -25,8 +25,8 @@
     {
       "name": "jira-sprint-nudge",
       "source": "./plugins/jira-sprint-nudge",
-      "description": "Scans the current sprint for issues with no (or near-empty) description and asks the reporter to add one. Skips issues already nudged.",
-      "version": "1.0.0",
+      "description": "Scans the current sprint and rates every issue's description for clarity (1-5), not just presence — flags vague, too-short, and self-contradictory descriptions, then asks the reporter for specific fixes. Re-scores whenever a description changes: acknowledges real fixes, re-nudges if still weak, stays silent otherwise.",
+      "version": "1.2.0",
       "author": {
         "name": "pasindu-ea",
         "email": "pasindu-ea@users.noreply.github.com"
