@@ -16,9 +16,21 @@ The Jira ID is the token before the first colon on the first line of the
 commit message.
 
 ## 0. Read arguments and credentials
-$1 = the expected **current** status (e.g. `"In Progress"`)
-$2 = the status to move matching issues **to** (e.g. `"In Review"`)
-If either is missing, stop and say so — do not guess a default.
+Exactly two arguments, in this fixed order — do not infer meaning from
+which status "sounds like" it comes first in a workflow, only from
+position:
+
+- **Argument 1** (`$1`) = `EXPECTED_CURRENT_STATUS` — the status an issue
+  must already be in for you to touch it at all.
+- **Argument 2** (`$2`) = `TARGET_STATUS` — the status to move it to, once
+  argument 1 has matched.
+
+Example call: `/jira-pr-status-sync "In Progress" "In Review"` means
+`EXPECTED_CURRENT_STATUS="In Progress"`, `TARGET_STATUS="In Review"` —
+first-positional-argument-is-always-current, second-is-always-target, with
+no exceptions and no alternate reading. If either argument is missing,
+stop and say so — do not guess a default, and do not pause to ask which
+argument means what: position alone decides it, always.
 
 ```bash
 JIRA_SITE="$(printenv 'JIRA-SITE-URL')"
@@ -49,8 +61,8 @@ stop — do not fall back to scanning the PR title or body.
 curl -s "${AUTH[@]}" "${JIRA_SITE}/rest/api/3/issue/${ID}?fields=status,summary"
 ```
 - If the issue doesn't exist / 404s → report it and move on; don't guess a fix.
-- If `fields.status.name` does **not** exactly match `$1` (the expected
-  "from" status) → **skip it**. This is the most important rule in this
+- If `fields.status.name` does **not** exactly match `EXPECTED_CURRENT_STATUS`
+  (argument 1) → **skip it**. This is the most important rule in this
   command: never move an issue whose current status you weren't told to
   expect. If someone already moved SCRUM-1 to "In Testing" by hand, a late
   PR-opened event must not drag it backward to "In Review".
@@ -62,7 +74,8 @@ look them up per issue, per run:
 ```bash
 curl -s "${AUTH[@]}" "${JIRA_SITE}/rest/api/3/issue/${ID}/transitions"
 ```
-Find the entry whose `to.name` exactly matches `$2`. If none exists (the
+Find the entry whose `to.name` exactly matches `TARGET_STATUS` (argument 2).
+If none exists (the
 workflow doesn't allow that move from the current status), report that
 specifically — don't force it via a field edit instead of a transition.
 
@@ -81,9 +94,10 @@ unique Jira ID found in this PR's commits:
 - Skipped, issue not found: `SCRUM-4: 404`
 
 ## Hard constraints
-- Never transition an issue whose current status isn't exactly the `$1`
-  you were given — this is the one rule that must never be relaxed, even
-  if the "obvious" intent seems clear.
+- Never transition an issue whose current status isn't exactly
+  `EXPECTED_CURRENT_STATUS` (argument 1, by position, always) — this is
+  the one rule that must never be relaxed, even if the "obvious" intent
+  seems clear.
 - Only read Jira IDs from commit messages, never from the PR title/body.
 - One transition attempt per issue per run — if it fails, report why;
   do not retry with a different transition guessed to "probably work."
