@@ -5,8 +5,8 @@
     "email": "pasindu-ea@users.noreply.github.com"
   },
   "metadata": {
-    "description": "ELEVATE 2026 — release-level documentation reconciliation.",
-    "version": "1.0.0",
+    "description": "ELEVATE 2026 — release-level documentation reconciliation and sprint hygiene agents.",
+    "version": "1.1.0",
     "pluginRoot": "./plugins"
   },
   "plugins": [
@@ -20,6 +20,18 @@
         "email": "pasindu-ea@users.noreply.github.com"
       },
       "category": "documentation",
+      "license": "MIT"
+    },
+    {
+      "name": "jira-sprint-nudge",
+      "source": "./plugins/jira-sprint-nudge",
+      "description": "Scans the current sprint for issues with no (or near-empty) description and asks the reporter to add one. Skips issues already nudged.",
+      "version": "1.0.0",
+      "author": {
+        "name": "pasindu-ea",
+        "email": "pasindu-ea@users.noreply.github.com"
+      },
+      "category": "project-management",
       "license": "MIT"
     }
   ]

@@ -1,0 +1,11 @@
+{
+  "name": "jira-sprint-nudge",
+  "version": "1.0.0",
+  "description": "Scans the current sprint for issues with no (or near-empty) description and asks the reporter, by name, to add one. Skips issues it already nudged.",
+  "author": {
+    "name": "pasindu-ea",
+    "email": "pasindu-ea@users.noreply.github.com"
+  },
+  "license": "MIT",
+  "commands": ["./commands/jira-sprint-nudge.md"]
+}
