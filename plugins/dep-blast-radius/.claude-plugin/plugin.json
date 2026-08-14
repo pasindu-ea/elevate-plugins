@@ -1,0 +1,11 @@
+{
+  "name": "dep-blast-radius",
+  "version": "1.0.0",
+  "description": "Finds which repos in the organization declare a dependency on the package this repo publishes, with the version each one is pinned to. Reads dependency manifests, never prose. Read-only in consumer repos.",
+  "author": {
+    "name": "pasindu-ea",
+    "email": "pasindu-ea@users.noreply.github.com"
+  },
+  "license": "MIT",
+  "commands": ["./commands/blast-radius.md"]
+}

@@ -5,8 +5,8 @@
     "email": "pasindu-ea@users.noreply.github.com"
   },
   "metadata": {
-    "description": "ELEVATE 2026 — release-level documentation reconciliation, sprint hygiene, and PR-to-board status sync agents.",
-    "version": "1.2.0",
+    "description": "ELEVATE 2026 — release-level documentation reconciliation, sprint hygiene, PR-to-board status sync, and cross-repo dependency blast radius agents.",
+    "version": "1.3.0",
     "pluginRoot": "./plugins"
   },
   "plugins": [
@@ -44,6 +44,18 @@
         "email": "pasindu-ea@users.noreply.github.com"
       },
       "category": "project-management",
+      "license": "MIT"
+    },
+    {
+      "name": "dep-blast-radius",
+      "source": "./plugins/dep-blast-radius",
+      "description": "Answers 'if I ship a breaking change, who breaks?' Detects the package this repo publishes, then reads every other repo's dependency manifests in the organization to find declared consumers and the version each is pinned to. Matches in dependency position only, never prose, and never writes to a consumer repo.",
+      "version": "1.0.0",
+      "author": {
+        "name": "pasindu-ea",
+        "email": "pasindu-ea@users.noreply.github.com"
+      },
+      "category": "dependencies",
       "license": "MIT"
     }
   ]
